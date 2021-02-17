@@ -18,8 +18,8 @@ if __name__ == "__main__":
 
     # Set log files
     nextId = tools.genNextLogFileId()
-    logFileAscii = "log/data-ascii-%i.log" % nextId
-    logFileBinary = "log/data-bin-%i.log" % nextId
+    logFileAscii = "log/data-ascii-%i.csv" % nextId
+    logFileBinary = "log/data-bin-%i.bin" % nextId
 
     # Open log files for writing
     f = open(logFileAscii, 'w')
