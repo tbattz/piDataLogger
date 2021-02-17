@@ -17,9 +17,10 @@ def genNextLogFileId():
     if len(allFiles) > 0:
         # Get the latest id
         for file in allFiles:
-            newId = int(file.split(".")[0].split("-")[-1])
-            if newId > nextId:
-                nextId = newId
+            if not file.startswith('.'):
+                newId = int(file.split(".")[0].split("-")[-1])
+                if newId > nextId:
+                    nextId = newId
 
     nextId += 1
 
