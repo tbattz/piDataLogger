@@ -1,5 +1,6 @@
 import sys
 import time
+import tools
 from datetime import datetime
 import matplotlib
 import matplotlib.pyplot as plt
@@ -7,7 +8,11 @@ import matplotlib.pyplot as plt
 
 
 # Get file Id
-fileId = int(sys.argv[1])
+if len(sys.argv) > 1:
+    fileId = int(sys.argv[1])
+else:
+    # Use last value
+    fileId = tools.genNextLogFileId() - 1    
 
 
 def followFile(filename):
@@ -23,8 +28,6 @@ def followFile(filename):
         if line is None:
             time.sleep(0.01)
         continue
-
-
 
 
 
@@ -104,7 +107,7 @@ if __name__ == '__main__':
 
     # Read data from iterator
     for line in lines:
-        if line is not None and len(line) > 0:
+        if line is not None and len(line) > 0 and line[0] != '\x00':
             print(line)
 
             # Update Data
