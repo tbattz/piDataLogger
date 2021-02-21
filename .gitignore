@@ -4,3 +4,4 @@
 *.csv
 *.bin
 __pycache__
+out.txt
